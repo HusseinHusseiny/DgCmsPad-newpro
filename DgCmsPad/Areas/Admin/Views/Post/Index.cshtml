@@ -21,6 +21,9 @@
             <th>
                 Date
             </th>
+           <th>
+               Details
+           </th>
             <th>
                 Category
             </th>
@@ -40,7 +43,10 @@
             </td>
           
             <td>
-                @item.Date.ToString("C2")
+                @item.Date
+            </td>
+            <td>
+                @item.Details
             </td>
             <td>
                 @item.Term.Name
