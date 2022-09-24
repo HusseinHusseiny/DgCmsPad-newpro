@@ -67,11 +67,17 @@ body {
   background-color:lightsteelblue;
     }
 
-li.nav-item.logout{
-    position:absolute;
-    top:10px;
-    right:10px;
-    list-style:none;
+li.nav-item.user {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    list-style: none;
+}
+li.nav-item.logout {
+    position: absolute;
+    top: 10px;
+    right: 150px;
+    list-style: none;
 }
 
 li.nav-item.login {

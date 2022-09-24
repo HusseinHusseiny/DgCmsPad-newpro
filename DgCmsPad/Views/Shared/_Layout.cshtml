@@ -58,7 +58,7 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Term">Terms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Test">Post Type</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Taxonomy">Taxonomies</a>
                                 </li>
 
                             }
@@ -78,14 +78,20 @@
                             <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                         </li>
 
+
                         <li class="nav-item login">
                             <a class="btn btn-dark" asp-area="Views" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
-
                         <li class="nav-item logout">
-                            <a class="btn btn-danger " asp-controller="Account" asp-action="Logout">Hi,@User.Identity.Name</a>
+                            <a class="btn btn-dark" asp-area="Views" asp-controller="Account" asp-action="Logout">Logout</a>
                         </li>
 
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item user">
+                                <a class="btn btn-danger " asp-controller="Account" asp-action="Logout">Hi,@User.Identity.Name</a>
+                            </li>
+                        }
 
 
                     </ul>
