@@ -1,24 +1,26 @@
-﻿@using ClassLibrary1
+﻿@model DgCmsPad.Models.Post
+
 
 @{
     ViewData["Title"] = "Details";
+    
 }
 
 <h1 class="display-4 pb-5">News</h1>
 
 <div class="row">
-    @foreach (var item in Model)
-    {
+    @*@foreach (var item in Model)
+    {*@
         <div class="col-1">
-            <img src="~/media/posts/@item.Image" class="img-fluid" />
-            <h4>@item.Name     </h4>
+            <img src="~/media/posts/@Model.Image" class="img-fluid" />
+            <h4>@Model.Name     </h4>
             <div>
-                @Html.Raw(item.Details)
+                @Html.Raw(Model.Details)
             </div>
             <p>
-                @item.Date.ToString("C2")
+                @Model.Date.ToString("")
             </p>
 
         </div>
-    }
+    
 </div>

@@ -6,7 +6,7 @@ using DgCmsPad.Infrastructure;
 using DgCmsPad.Models;
 using Microsoft.AspNetCore.Mvc;
 using Polly;
-using ClassLibrary1;
+
 using System.Data.Entity;
 
 namespace PublicWebb.Controllers
@@ -24,21 +24,22 @@ namespace PublicWebb.Controllers
         private readonly DgCmsPadContext context;
 
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            IQueryable<Post> posts = from p in context.Posts select p;
-            List<Post> pageList = await posts.ToListAsync();
-            return View(pageList);
 
 
-         
+            // return View(await context.Posts.OrderByDescending(x => x.Id).Include(x => x.Term).ToListAsync());
+            var posts = context.Posts.OrderByDescending(x => x.Id);
+            
+            return View(posts.ToList());
+
 
         }
 
 
-         public async Task<IActionResult> Details(int id)
+        public  IActionResult Details(int id)
         {
-            Post post = await context.Posts.Include(x => x.PostTypeId).FirstOrDefaultAsync(x => x.Id == id);
+            Post post = context.Posts.Include(x => x.PostTypeId).FirstOrDefault(x => x.Id == id);
             if (post == null)
             {
                 return NotFound();
