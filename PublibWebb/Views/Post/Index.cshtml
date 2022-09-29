@@ -7,19 +7,38 @@
 
 <h1 class="display-4 pb-5">News</h1>
 
-<div class=" table "  style="border-block-style:solid" >
+<div class="container-fluid pt-5 mb-3">
     @foreach (var item in Model)
     {
-        <div class="col-1"> <img src="~/media/posts/@item.Image" class="img-fluid" />
-            <h4>@item.Name     </h4><br />
-            
-            <p>
-                @item.Date.ToString()
-            </p><br />
-            <p>@item.Slug</p><br />
-            <p>@item.Details</p>
-            <p>@Html.ActionLink("Details", "Details", "Post")</p>
+
+
+        <div class="container border-danger">
+
+            <div class="owl-carousel news-carousel carousel-item-4 position-relative owl-loaded owl-drag">
+
+                <div class="position-relative overflow-hidden" style="height: 300px;">
+
+
+                    <img src="~/media/posts/@item.Image" class="img-fluid" />
+                   
+                    <h4>@item.Name     </h4><br />
+
+                    <h5>@item.Slug</h5><br />
+                    <h6>
+                        @item.Date.ToString()
+                    </h6><br />
+
+
+                    <p>@item.Details</p>
+
+
+                    <p>@Html.ActionLink("Details", "Details", "Post")</p>
+                </div>
+            </div>
         </div>
+   
+    
+
     }
 </div>
 
