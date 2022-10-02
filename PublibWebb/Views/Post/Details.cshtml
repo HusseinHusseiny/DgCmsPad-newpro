@@ -6,21 +6,31 @@
     
 }
 
+
 <h1 class="display-4 pb-5">News</h1>
 
 <div class="row">
-    @*@foreach (var item in Model)
-    {*@
-        <div class="col-1">
-            <img src="~/media/posts/@Model.Image" class="img-fluid" />
-            <h4>@Model.Name     </h4>
-            <div>
-                @Html.Raw(Model.Details)
+    
+    <div class="container border-danger">
+
+        <div class="owl-carousel news-carousel carousel-item-4 position-relative owl-loaded owl-drag">
+
+            <div class="position-relative overflow-hidden" style="height: 300px;">
+
+                <img src="~/media/posts/@Model.Image" class="img-fluid" /><br />
+                <h4>@Model.Name     </h4><br />
+                <p>
+                    @Model.Date
+                </p><br />
+                <h5>@Model.Slug</h5><br />v
+                <div>
+                    @Html.Raw(Model.Details)
+                </div><br />
+
+                <li class="navbar-nav mr-auto py-0">@Html.ActionLink("Back", "Index", "Post")</li>
             </div>
-            <p>
-                @Model.Date.ToString("")
-            </p>
 
         </div>
-    
+
+</div>
 </div>

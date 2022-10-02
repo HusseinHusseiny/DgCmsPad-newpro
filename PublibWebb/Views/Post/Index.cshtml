@@ -19,7 +19,7 @@
                 <div class="position-relative overflow-hidden" style="height: 300px;">
 
 
-                    <img src="~/media/posts/@item.Image" class="img-fluid" />
+                    <img src="~/media/posts/@item.Image" class="img-fluid" /><br />
                    
                     <h4>@item.Name     </h4><br />
 
@@ -29,10 +29,13 @@
                     </h6><br />
 
 
-                    <p>@item.Details</p>
+                  
 
+                    
+                    
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
 
-                    <p>@Html.ActionLink("Details", "Details", "Post")</p>
+                    
                 </div>
             </div>
         </div>
